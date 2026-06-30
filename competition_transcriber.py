@@ -6,7 +6,6 @@ import os
 import PIL.Image
 import malti.line_joiner
 import pytesseract
-
 #pip install pytesseract
 
 class CompetitionTranscriber:
@@ -21,7 +20,6 @@ class CompetitionTranscriber:
             filename="finetune_tess_extended_2000.traineddata",
         )
         self.tessdata_dir = os.path.dirname(self.traineddata_path)
-        #self.model_dir = os.path.dirname(self.traineddata_path)
         
 
     def transcribe(self, image: PIL.Image) -> str:
@@ -44,8 +42,6 @@ class CompetitionTranscriber:
                     "finetune_tess_extended_2000", 
                     image_path,
                     output_base,
-                   
-                   # '-l', 'finetune_tess_extended_2000',  # Loads 'finetune_tess.traineddata'
                 ],
                 env=env,
                 capture_output=True,
